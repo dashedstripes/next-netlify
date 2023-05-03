@@ -16,7 +16,7 @@ query($slug: String) {
 }
 `
 
-const getPostBySlug = async (event) => {
+const getPostBySlug = async (slug) => {
   try {
     const req = await fetch(URL, {
       method: 'POST',
@@ -24,7 +24,7 @@ const getPostBySlug = async (event) => {
         'Authorization': `Bearer ${process.env.CONTENTFUL_API_TOKEN}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ query: QUERY, variables: { slug: "contenda-builds-with-netlify-and-astro-to-share-gated-content-previews" } })
+      body: JSON.stringify({ query: QUERY, variables: { slug } })
     })
     const json = await req.json();
 
