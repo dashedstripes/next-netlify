@@ -23,7 +23,7 @@ const Post: React.FC<Props> = ({ data }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:8888/.netlify/functions/get-post-by-slug')
+  const res = await fetch(`${process.env.DEPLOY_URL}/.netlify/functions/get-post-by-slug`)
   const data = await res.json()
 
   return {
