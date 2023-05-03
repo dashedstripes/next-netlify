@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PostList, { Post } from './components/PostList';
 import fetchPosts from '@/utils/fetch-posts';
 import Header from './components/Header';
+import Layout from './components/Layout';
 
 interface Props {
   posts: Post[];
@@ -9,12 +10,9 @@ interface Props {
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
-    <main>
-      <Header/>
-      <div className='container m-auto p-4 text-center'>
-        <PostList posts={posts}/>
-      </div>
-    </main>
+    <Layout>
+      <PostList posts={posts} />
+    </Layout>
   )
 }
 

@@ -2,6 +2,7 @@ import { GetStaticPaths } from 'next'
 import fetchPosts from '../../utils/fetch-posts';
 import getPostsBySlug from '../../utils/get-post-by-slug';
 import Header from '../components/Header';
+import Layout from '../components/Layout';
 
 type Post = {
   title: string;
@@ -17,13 +18,12 @@ interface Props {
 
 const Post: React.FC<Props> = ({ data }) => {
   return (
-    <main>
-      <Header/>
+    <Layout>
       <div className='container m-auto w-[75ch] p-10'>
-        <h1 className='font-bold text-2xl mb-4'>{data.post.title}</h1>
+      <h1 className='font-bold text-2xl mb-4'>{data.post.title}</h1>
         <p>{JSON.stringify(data.post.description)}</p>
       </div>
-    </main>
+    </Layout>
   )
 }
 

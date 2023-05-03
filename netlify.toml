@@ -23,4 +23,4 @@
 
 [[edge_functions]]
 function = "get-geo"
-path = "/get-geo"
+path = "/*"
