@@ -14,7 +14,6 @@ query {
 }
 `
 
-
 async function fetchPosts() {
     try {
         const req = await fetch(URL, {
@@ -26,7 +25,7 @@ async function fetchPosts() {
             body: JSON.stringify({ query: QUERY, variables: {} })
         })
         const json = await req.json();
-        return json.data.productCollection.items.map((item) => (item.slug || '')) || []
+        return json.data.productCollection.items || []
     } catch (error) {
         return []
     }

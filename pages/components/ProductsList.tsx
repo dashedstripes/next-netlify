@@ -1,30 +1,20 @@
-import { useEffect, useState } from 'react';
-
 type RichText = {
     nodeType: string;
     value: string;
     content: RichText;
 }
 
-type Post = {
+export type Post = {
     title: string
     slug: string
     description: RichText[]
 }
 
-export default function Home() {
-  const [posts, setPosts] = useState([]);
+interface Props {
+  posts: Post[];
+}
 
-  useEffect(() => {
-    getPosts();
-
-    async function getPosts() {
-      const req = await fetch('/.netlify/functions/get-posts');
-      const json = await req.json();
-      setPosts(json.posts);
-    }
-  }, []);
-
+const PostsList: React.FC<Props> = ({ posts }) => {
   const renderedPosts = posts?.map((post: Post) => (
     <div key={post.title} className='w-4/12 p-4'>
       <h2><a href={`/posts/${post.slug}`}>{post.title}</a></h2>
@@ -39,3 +29,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default PostsList;

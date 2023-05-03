@@ -1,5 +1,6 @@
 import { GetStaticPaths } from 'next'
 import fetchPosts from '../../utils/fetch-posts';
+import getPostsBySlug from '../../utils/get-post-by-slug';
 
 type Post = {
   title: string;
@@ -23,12 +24,11 @@ const Post: React.FC<Props> = ({ data }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.DEPLOY_URL}/.netlify/functions/get-post-by-slug`)
-  const data = await res.json()
+  const posts = await getPostsBySlug();
 
   return {
     props: {
-      data,
+      data: posts,
     },
     // revalidate: 10
   }
@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async (test) => {
   const posts = await fetchPosts();
 
   return {
-    paths: posts.map((post: string) => ({ params: { slug: post } })),
+    paths: posts.map((post: any) => ({ params: { slug: post.slug } })),
     fallback: false
   };
 }

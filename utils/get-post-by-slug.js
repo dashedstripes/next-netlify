@@ -16,7 +16,7 @@ query($slug: String) {
 }
 `
 
-const handler = async (event) => {
+const getPostBySlug = async (event) => {
   try {
     const req = await fetch(URL, {
       method: 'POST',
@@ -30,13 +30,10 @@ const handler = async (event) => {
 
     const results = json?.data?.productCollection?.items || [];
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({post: results[0] || {}})
-    }
+    return {post: results[0] || {}}
   } catch (error) {
-    return { statusCode: 500, body: error.toString() }
+    return { post: {} }
   }
 }
 
-module.exports = { handler }
+export default getPostBySlug

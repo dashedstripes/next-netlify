@@ -1,10 +1,12 @@
-import { Inter } from 'next/font/google'
 import { useEffect, useState } from 'react';
-import ProductsList from './components/ProductsList';
+import ProductsList, { Post } from './components/ProductsList';
+import fetchPosts from '@/utils/fetch-posts';
 
-const inter = Inter({ subsets: ['latin'] })
+interface Props {
+  posts: Post[];
+}
 
-export default function Home() {
+const Home: React.FC<Props> = ({ posts }) => {
   const [msg, setMsg] = useState('');
 
   useEffect(() => {
@@ -21,8 +23,21 @@ export default function Home() {
     <main>
       <div className='container m-auto p-4 text-center'>
         <p>{msg}</p>
-        <ProductsList/>
+        <ProductsList posts={posts}/>
       </div>
     </main>
   )
 }
+
+export async function getStaticProps() {
+  const posts = await fetchPosts();
+
+  return {
+    props: {
+      posts,
+    },
+    // revalidate: 10
+  }
+}
+
+export default Home;
