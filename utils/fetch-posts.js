@@ -9,6 +9,9 @@ query {
       description {
         json
       }
+      image {
+        url(transform: { format: JPG })
+      }
     }
   }
 }

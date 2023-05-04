@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type RichText = {
     nodeType: string;
     value: string;
@@ -8,6 +10,7 @@ export type Post = {
     title: string
     slug: string
     description: RichText[]
+    image: { url: string }
 }
 
 interface Props {
@@ -16,17 +19,16 @@ interface Props {
 
 const PostsList: React.FC<Props> = ({ posts }) => {
   const renderedPosts = posts?.map((post: Post) => (
-    <div key={post.title} className='w-6/12 p-4'>
-      <h2 className="font-bold text-2xl"><a href={`/posts/${post.slug}`}>{post.title}</a></h2>
-    </div>
+    <Link key={post.title} className='w-full' href={`/posts/${post.slug}`}>
+      <img src={post.image.url} alt={post.title} width={1000} height={600} className="rounded-xl"/>
+      <h2 className="font-bold text-2xl">{post.title}</h2>
+    </Link>
   ))
 
   return (
-    <main>
-      <div className='container m-auto p-4 text-center flex flex-wrap'>
-        {renderedPosts}
-      </div>
-    </main>
+    <div className='container m-auto grid grid-cols-3 gap-8 py-8'>
+      {renderedPosts}
+    </div>
   )
 }
 

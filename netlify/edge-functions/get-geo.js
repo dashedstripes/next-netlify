@@ -1,4 +1,4 @@
-export default async (request, context) => {
+export default async (_, context) => {
   const response = await context.next();
 
   const page = await response.text();

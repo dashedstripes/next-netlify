@@ -20,7 +20,7 @@ interface Props {
 const Post: React.FC<Props> = ({ data }) => {
   return (
     <Layout>
-      <div className='container m-auto w-[75ch] p-10'>
+      <div className='container m-auto max-w-[75ch] p-10'>
       <h1 className='font-bold text-4xl mb-4'>{data.post.title}</h1>
       <div className='prose lg:prose-xl"'>
         {documentToReactComponents(data.post.description.json)}
