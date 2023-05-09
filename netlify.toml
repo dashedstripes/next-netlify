@@ -24,3 +24,9 @@
 [[edge_functions]]
 function = "get-geo"
 path = "/*"
+
+[[redirects]]
+  from = "/notes"
+  to = "https://adamgray.dev/notes/:splat"
+  status = 200
+  headers = {X-From = "Netlify"}
