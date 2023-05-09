@@ -27,6 +27,5 @@ path = "/*"
 
 [[redirects]]
   from = "/notes"
-  to = "https://adamgray.dev/notes/:splat"
+  to = "https://adamgray.dev/notes"
   status = 200
-  headers = {X-From = "Netlify"}
