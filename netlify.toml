@@ -29,3 +29,8 @@ path = "/*"
   from = "/notes/*"
   to = "https://adamgray.dev/notes/:splat"
   status = 200
+
+[[redirects]]
+  from = "/notion/*"
+  to = "https://gabygoldberg.notion.site/:splat"
+  status = 200
