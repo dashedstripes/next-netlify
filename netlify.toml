@@ -27,5 +27,5 @@ path = "/*"
 
 [[redirects]]
   from = "/notes/*"
-  to = "https://adamgray.dev/notes"
+  to = "https://adamgray.dev/notes/:splat"
   status = 200
