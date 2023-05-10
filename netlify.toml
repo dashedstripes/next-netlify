@@ -3,6 +3,7 @@
   command = "next build"
   functions = "netlify/functions"
   publish = ".next"
+  ignore = "bash ./ignore-build.sh"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
@@ -19,9 +20,6 @@
   #  publish = "dist" # Folder with the static content for _redirect file
 
   ## more info on configuring this file: https://docs.netlify.com/configure-builds/file-based-configuration/
-
-[build]
-ignore = "bash ./ignore-build.sh"
 
 [[edge_functions]]
 function = "get-geo"
