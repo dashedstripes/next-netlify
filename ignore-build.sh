@@ -1,4 +1,4 @@
-if [[ $(date +%u) -lt 6 ]]; then
-    echo 'Cannot build during weekdays.'
+if [[ $(date +%u) -gt 5 ]]; then
+    echo 'Cannot build during weekends.'
     exit 0
 fi
