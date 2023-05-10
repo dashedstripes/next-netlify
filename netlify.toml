@@ -25,6 +25,10 @@
 function = "get-geo"
 path = "/*"
 
+[[edge_functions]]
+function = "split-test"
+path = "/*"
+
 [[redirects]]
   from = "/notes/*"
   to = "https://adamgray.dev/notes/:splat"
