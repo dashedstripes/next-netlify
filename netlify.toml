@@ -20,6 +20,8 @@
 
   ## more info on configuring this file: https://docs.netlify.com/configure-builds/file-based-configuration/
 
+[build]
+ignore = "bash ./ignore-build.sh"
 
 [[edge_functions]]
 function = "get-geo"
