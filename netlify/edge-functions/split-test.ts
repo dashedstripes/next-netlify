@@ -1,4 +1,3 @@
-// deno-lint-ignore-file
 import type { Context } from "https://edge.netlify.com";
 
 export default async (_: Request, context: Context) => {

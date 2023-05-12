@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
 import PostList, { Post } from './components/PostList';
-import fetchPosts from '@/utils/fetch-posts';
-import Header from './components/Header';
 import Layout from './components/Layout';
+import { fetchPosts } from '@/services/contentful';
 
 interface Props {
   posts: Post[];

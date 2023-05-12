@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import fetchPosts from '../../utils/fetch-posts';
-import getPostsBySlug from '../../utils/get-post-by-slug';
 import Layout from '../components/Layout';
+import { getPostBySlug, fetchPosts } from '@/services/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
@@ -31,7 +30,7 @@ const Post: React.FC<Props> = ({ data }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const posts = await getPostsBySlug(context?.params?.slug);
+  const posts = await getPostBySlug(context?.params?.slug);
 
   return {
     props: {
