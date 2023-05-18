@@ -24,13 +24,3 @@
 [[edge_functions]]
 function = "get-geo"
 path = "/*"
-
-[[redirects]]
-  from = "/notes/*"
-  to = "https://adamgray.dev/notes/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/images/*"
-  to = "https://adamgray.dev/images/:splat"
-  status = 200
