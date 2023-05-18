@@ -21,7 +21,7 @@ const Home: React.FC<Props> = ({ posts, products }) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const posts = await fetchPosts();
   const products = await fetchProducts();
 
