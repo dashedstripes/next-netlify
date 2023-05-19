@@ -23,7 +23,7 @@ export async function fetchPosts() {
     const req = await fetch(URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.CONTENTFUL_API_TOKEN}`,
+        'Authorization': `Bearer ${process.env.CONTENTFUL_DELIVERY_TOKEN}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ query: QUERY, variables: {} })
@@ -58,7 +58,7 @@ export async function getPostBySlug(slug) {
     const req = await fetch(URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.CONTENTFUL_API_TOKEN}`,
+        'Authorization': `Bearer ${process.env.CONTENTFUL_DELIVERY_TOKEN}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ query: QUERY, variables: { slug } })
