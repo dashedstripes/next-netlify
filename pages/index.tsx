@@ -12,9 +12,6 @@ interface Props {
 const Home: React.FC<Props> = ({ posts, products }) => {
   return (
     <Layout>
-      <div className='py-20 px-4'>
-        Hero, product
-      </div>
       <ProductList products={products || []}/>
       <PostList posts={posts || []} />
     </Layout>
