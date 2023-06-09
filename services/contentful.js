@@ -4,7 +4,7 @@ export async function fetchPosts() {
 
   const QUERY = `
     query {
-      productCollection {
+      postCollection {
         items {
           title
           slug
@@ -29,7 +29,8 @@ export async function fetchPosts() {
       body: JSON.stringify({ query: QUERY, variables: {} })
     })
     const json = await req.json();
-    return json.data.productCollection.items || []
+
+    return json.data.postCollection.items || []
   } catch (error) {
     return []
   }
@@ -40,7 +41,7 @@ export async function getPostBySlug(slug) {
 
   const QUERY = `
     query($slug: String) {
-      productCollection(where: {
+      postCollection(where: {
         slug: $slug
       }, limit: 1) {
         items {
@@ -64,7 +65,8 @@ export async function getPostBySlug(slug) {
       body: JSON.stringify({ query: QUERY, variables: { slug } })
     })
     const json = await req.json();
-    const results = json?.data?.productCollection?.items || [];
+
+    const results = json?.data?.postCollection?.items || [];
     return { post: results[0] || {} }
   } catch (error) {
     return { post: {} }
